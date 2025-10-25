@@ -252,3 +252,4 @@ function addKeyboardNavigation() {
 // Llamamos a las funciones adicionales
 showWelcomeMessage();
 addKeyboardNavigation();
+
