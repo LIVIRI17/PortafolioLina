@@ -291,6 +291,105 @@ body {
     box-shadow: 0 5px 15px rgba(217, 60, 232, 0.3);
 }
 
+/* ===== SECCIÓN CERTIFICACIONES ===== */
+.certifications {
+    padding: 6rem 0;
+    background: #f8fafc;
+    color: #5F3663;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.certification-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #D93CE8;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.certification-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4A1A4A;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(74, 26, 74, 0.2);
+}
+
+.issuer {
+    font-weight: 500;
+    color: #D93CE8;
+    margin-bottom: 0.3rem;
+}
+
+.year {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.certification-card .description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ===== SECCIÓN TESTIMONIOS ===== */
+.testimonials {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #FCADFF 0%, #D93CE8 100%);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-content p {
+    color: #4A1A4A;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.testimonial-author h4 {
+    color: #4A1A4A;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.testimonial-author p {
+    color: #4A1A4A;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 /* ===== SECCIÓN PROYECTOS ===== */
 .projects {
     padding: 6rem 0;

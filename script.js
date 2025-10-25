@@ -8,29 +8,55 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Agregamos un event listener para el evento 'submit' del formulario
     contactForm.addEventListener('submit', function(event) {
-        // Prevenimos el comportamiento por defecto del formulario (enviar datos al servidor)
+        // Prevenimos el comportamiento por defecto para manejar el envío manualmente
         event.preventDefault();
         
-        // Mostramos el mensaje en la consola del navegador
-        console.log('Formulario enviado correctamente');
-        
-        // Obtenemos los valores del formulario para mostrar información adicional
+        // Obtenemos los valores del formulario
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
         const message = formData.get('message');
         
-        // Mostramos información detallada en la consola
-        console.log('Datos del formulario:');
-        console.log('Nombre:', name);
-        console.log('Email:', email);
-        console.log('Mensaje:', message);
+        // Validamos que todos los campos estén llenos
+        if (!name || !email || !message) {
+            alert('Por favor, completa todos los campos del formulario.');
+            return;
+        }
         
-        // Mostramos una alerta visual al usuario
-        alert('¡Mensaje enviado correctamente! Te contactaremos pronto.');
-        
-        // Limpiamos el formulario después del envío
-        contactForm.reset();
+        // Enviamos el formulario a Formspree usando fetch
+        fetch('https://formspree.io/f/meopjkwq', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // Mostramos el mensaje en la consola del navegador
+                console.log('Formulario enviado a Formspree correctamente');
+                console.log('Datos del formulario:');
+                console.log('Nombre:', name);
+                console.log('Email:', email);
+                console.log('Mensaje:', message);
+                
+                // Mostramos una alerta visual al usuario
+                alert('¡Mensaje enviado correctamente! Te contactaremos pronto.');
+                
+                // Limpiamos el formulario después del envío
+                contactForm.reset();
+            } else {
+                throw new Error('Error al enviar el formulario');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+        });
     });
 });
 
